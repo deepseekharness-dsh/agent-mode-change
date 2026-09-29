@@ -43,18 +43,18 @@ npm publish                      # 需要 npmjs 的 token；name 就是 agent-mo
 精选列表只接受 **GitHub** 仓库地址，所以在 Gitee 主仓之外还要有一个 GitHub 镜像，两种做法：
 
 - GitHub 网页端 **Import a repository**，源填 Gitee 公开仓库地址（最快，无需本地配置）；
-- 或 `git remote add github https://github.com/<owner>/agent-mode-change.git && git push github main`。
+- 或 `git remote add github https://github.com/deepseekharness-dsh/agent-mode-change.git && git push github main`。
 
 推送后同样给 GitHub 仓库加 `dsh-plugin` topic。
 
 ## 4. 收录进精选列表（dsh 市场即来源于此）
 
 向 [awesome-dsh-plugin/awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)
-提一个 **只新增一个文件** 的 PR：`data/plugins/<owner>__agent-mode-change.yml`
+提一个 **只新增一个文件** 的 PR：`data/plugins/deepseekharness-dsh__agent-mode-change.yml`
 
 ```yaml
-url: https://github.com/<owner>/agent-mode-change
-name: <owner>/agent-mode-change
+url: https://github.com/deepseekharness-dsh/agent-mode-change
+name: deepseekharness-dsh/agent-mode-change
 category: ui
 description:
   en: Floating Agent-mode window that switches a session between DeepSeek Harness and the archived prompts @deepseek-ai/dsh-agent-emulation ships.
