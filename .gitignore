@@ -1,0 +1,20 @@
+# macOS / Windows noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# editors
+.vscode/
+.idea/
+*.swp
+
+# logs and local state
+*.log
+npm-debug.log*
+pnpm-debug.log*
+node_modules/
+.npm/
+.pnpm-store/
+
+# npm pack output
+*.tgz

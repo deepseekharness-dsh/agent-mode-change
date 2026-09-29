@@ -1,0 +1,13 @@
+# Bundle patch of agent-mode-change.
+#
+# One Host row: it registers the client-visible session projection
+# `agentModeChange` that carries the session's logged agent-emulation
+# choice plus the prompt catalog, so the floating window in the browser can
+# render the live state without re-reading session events and without running
+# `/agent list` (which would append a command card to the transcript).
+#
+# The browser half ships through this package's `dsh.client` declaration and
+# renders into `shell.overlay`; no separate row is needed for it.
+- insert:
+    - id: agent-mode-change
+      name: 'agent-mode-change'

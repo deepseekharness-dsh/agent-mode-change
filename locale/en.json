@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Agent Mode Float",
+    "description": "Turns the Agent modes this deployment can run into a freely draggable floating window: DeepSeek Harness (the default — this harness's own prompt) plus every archived-prompt mode @deepseek-ai/dsh-agent-emulation ships. Press anywhere and drag to place it; the position is remembered; picking a row switches this session's mode."
+  }
+}

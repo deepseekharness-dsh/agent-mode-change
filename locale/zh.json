@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Agent 模式悬浮窗",
+    "description": "把本部署可用的 Agent 模式做成一个可自由拖动的悬浮窗：默认模式 DeepSeek Harness（本 harness 自己的提示词），另有 @deepseek-ai/dsh-agent-emulation 提供的归档提示词模式。窗口任意位置按住即可摆放，位置自动记住；点选一行即切换本会话的模式。"
+  }
+}
