@@ -1,6 +1,6 @@
 # 发布流程 / Releasing
 
-仓库：<https://gitee.com/deepseekharness/agent-mode-change>（GitHub 镜像待建）
+仓库：GitHub https://github.com/deepseekharness-dsh/agent-mode-change ｜ Gitee 镜像 https://gitee.com/deepseekharness/agent-mode-change
 npm 包名：`agent-mode-change`（= `package.json` 的 `name`，也就是市场里的安装名）
 
 三段链路，顺序是：**先推仓库 → 再发 npm → 最后提收录 PR**。
@@ -36,7 +36,7 @@ npm pack --dry-run               # 确认打包内容：index.js client.js cordi
 npm publish                      # 需要 npmjs 的 token；name 就是 agent-mode-change
 ```
 
-发布后包页：<https://www.npmjs.com/package/agent-mode-change>
+发布后包页：https://www.npmjs.com/package/agent-mode-change
 
 ## 3. GitHub 镜像（精选列表需要）
 
@@ -70,8 +70,8 @@ description:
 
 另外两个注册表多为**自动采集**（发布 npm 包 + 打 `dsh-plugin` topic 后通常会被爬入）：
 
-- <https://github.com/imsai-sh/awesome-deepseek-harness-plugins>
-- <https://github.com/dshworks/awesome-dsh-plugins>
+- https://github.com/imsai-sh/awesome-deepseek-harness-plugins
+- https://github.com/dshworks/awesome-dsh-plugins
 
 ## 5. 发版检查单
 

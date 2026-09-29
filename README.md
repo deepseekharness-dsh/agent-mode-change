@@ -1,23 +1,23 @@
-<div align="center">
-
 # Agent Mode Change
 
-**DeepSeek Harness 的 Agent 模式悬浮窗。**
-一个可自由拖动的 Web UI 面板，把当前会话的系统提示词在「本机提示词」与 **13 个主流编码 Agent CLI 的归档提示词**之间一键切换。
+**DeepSeek Harness 的 Agent 模式悬浮窗。** 一个可自由拖动的 Web UI 面板，把当前会话的系统提示词在「本机提示词」与 **13 个主流编码 Agent CLI 的归档提示词**之间一键切换。
+
+**语言 / Language：** [English](README.en.md) ｜ **中文**
+
+**状态：** ✅ CI 通过 · Node ≥ 20 · MIT · npm `agent-mode-change`
+
+**关键词：** `DeepSeek Harness` · `dsh` · `dsh-plugin` · `Cordis` · `AI Agent` · `Coding Agent` · `System Prompt` · `Prompt Engineering`
+
+**仓库：** [GitHub](https://github.com/deepseekharness-dsh/agent-mode-change) ｜ 镜像 [Gitee](https://gitee.com/deepseekharness/agent-mode-change) ｜ npm [`agent-mode-change`](https://www.npmjs.com/package/agent-mode-change)
+
+<!--
+徽章默认关闭：部分网络环境（含国内）访问 img.shields.io 与 github.com/*.svg 会超时，
+在 GitHub 与 Gitee 页面上都会显示成裂图。发布到 npm 后如需徽章，去掉下面两行的注释即可。
+CI 运行记录：https://github.com/deepseekharness-dsh/agent-mode-change/actions
 
 [![CI](https://github.com/deepseekharness-dsh/agent-mode-change/actions/workflows/ci.yml/badge.svg)](https://github.com/deepseekharness-dsh/agent-mode-change/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/agent-mode-change?color=blue)](https://www.npmjs.com/package/agent-mode-change)
-[![npm downloads](https://img.shields.io/npm/dm/agent-mode-change)](https://www.npmjs.com/package/agent-mode-change)
-[![license](https://img.shields.io/npm/l/agent-mode-change)](LICENSE)
-[![node](https://img.shields.io/badge/node-%3E%3D20-3c873a)](package.json)
-
-[English](README.en.md) ｜ 中文
-
-`DeepSeek Harness` · `dsh` · `dsh-plugin` · `Cordis` · `AI Agent` · `Coding Agent` · `System Prompt` · `Prompt Engineering`
-
-GitHub <https://github.com/deepseekharness-dsh/agent-mode-change> ｜ Gitee 镜像 <https://gitee.com/deepseekharness/agent-mode-change> ｜ npm `agent-mode-change`
-
-</div>
+-->
 
 ---
 
@@ -123,7 +123,7 @@ dsh plugin --profile <profile> add /absolute/path/agent-mode-change
 
 | 类别 | 具体内容 |
 |---|---|
-| 执行 | 一条 host 命令 `/agent <off\|id>`（等价于用户在输入框手打）：产生普通的 `command/run` + `command/done`，选择变化时再产生一条 `agent-emulation/select` |
+| 执行 | 一条 host 命令（`/agent off` 或 `/agent <id>`，等价于用户在输入框手打）：产生普通的 `command/run` + `command/done`，选择变化时再产生一条 `agent-emulation/select` |
 | 读取 | 一个会话投影（键 `agentModeChange`） |
 | 写入 | 两个浏览器 `localStorage` 键：`agent-mode-change/anchor`、`agent-mode-change/open` |
 | 不做 | ❌ 不联网　❌ 不读写文件　❌ 不注册工具　❌ 不注入提示词　❌ 不修改已有日志内容 |

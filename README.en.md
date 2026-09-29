@@ -1,23 +1,24 @@
-<div align="center">
-
 # Agent Mode Change
 
-**The Agent-mode floating window for DeepSeek Harness.**
-A freely draggable Web-UI panel that switches the current session's system prompt between the harness's own prompt and **13 archived coding-agent CLI prompts** — in one click.
+**The Agent-mode floating window for DeepSeek Harness.** A freely draggable Web-UI panel that switches the current session's system prompt between the harness's own prompt and **13 archived coding-agent CLI prompts** — in one click.
+
+**Language / 语言：** **English** ｜ [中文](README.md)
+
+**Status:** ✅ CI passing · Node ≥ 20 · MIT · npm `agent-mode-change`
+
+**Keywords:** `DeepSeek Harness` · `dsh` · `dsh-plugin` · `Cordis` · `AI Agent` · `Coding Agent` · `System Prompt` · `Prompt Engineering`
+
+**Repository:** [GitHub](https://github.com/deepseekharness-dsh/agent-mode-change) ｜ mirror [Gitee](https://gitee.com/deepseekharness/agent-mode-change) ｜ npm [`agent-mode-change`](https://www.npmjs.com/package/agent-mode-change)
+
+<!--
+Badges are off by default: in some networks (mainland China among them) img.shields.io
+and github.com/*.svg time out, which renders as a broken image on GitHub and on the Gitee
+mirror. Once the package is on npm, uncomment the two lines below to switch them on.
+CI runs: https://github.com/deepseekharness-dsh/agent-mode-change/actions
 
 [![CI](https://github.com/deepseekharness-dsh/agent-mode-change/actions/workflows/ci.yml/badge.svg)](https://github.com/deepseekharness-dsh/agent-mode-change/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/agent-mode-change?color=blue)](https://www.npmjs.com/package/agent-mode-change)
-[![npm downloads](https://img.shields.io/npm/dm/agent-mode-change)](https://www.npmjs.com/package/agent-mode-change)
-[![license](https://img.shields.io/npm/l/agent-mode-change)](LICENSE)
-[![node](https://img.shields.io/badge/node-%3E%3D20-3c873a)](package.json)
-
-English ｜ [中文](README.md)
-
-`DeepSeek Harness` · `dsh` · `dsh-plugin` · `Cordis` · `AI Agent` · `Coding Agent` · `System Prompt` · `Prompt Engineering`
-
-GitHub <https://github.com/deepseekharness-dsh/agent-mode-change> ｜ Gitee mirror <https://gitee.com/deepseekharness/agent-mode-change> ｜ npm `agent-mode-change`
-
-</div>
+-->
 
 ---
 
@@ -137,7 +138,7 @@ The full data flow, the invariants and the capability table are in
 
 | Kind | Detail |
 |---|---|
-| Runs | One host command, `/agent <off\|id>` (the same thing a person types): an ordinary `command/run` + `command/done`, plus one `agent-emulation/select` when the choice changes |
+| Runs | One host command (`/agent off` or `/agent <id>`, the same thing a person types): an ordinary `command/run` + `command/done`, plus one `agent-emulation/select` when the choice changes |
 | Reads | One session projection (key `agentModeChange`) |
 | Writes | Two browser `localStorage` keys: `agent-mode-change/anchor`, `agent-mode-change/open` |
 | Never | ❌ no network　❌ no file reads or writes　❌ no tools registered　❌ no prompt injection　❌ no modification of existing log content |
