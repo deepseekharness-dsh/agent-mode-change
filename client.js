@@ -482,9 +482,14 @@ window.__ModuleLoader__.load({
         };
       }, []);
 
-      const agents = value !== null && typeof value === 'object' && Array.isArray(value.agents) && value.agents.length > 0
+      // Defensive normalization: a malformed catalog row (null, a number, a
+      // string) must never reach the render code. A render-time throw would be
+      // isolated by the slot machinery, leaving the entry registered but the
+      // window gone — the exact failure this guard prevents.
+      const rawAgents = value !== null && typeof value === 'object' && Array.isArray(value.agents) && value.agents.length > 0
         ? value.agents
         : FALLBACK_AGENTS;
+      const agents = rawAgents.filter((agent) => agent !== null && typeof agent === 'object');
       const explicit = value !== null && typeof value === 'object' && value.explicit === true;
       const selection = value !== null && typeof value === 'object' && typeof value.selection === 'string' ? value.selection : null;
       const active = explicit ? selection ?? OFF : OFF;
@@ -682,6 +687,91 @@ window.__ModuleLoader__.load({
       );
     }
 
+    /**
+     * Error boundary around the window.
+     *
+     * A render error inside a slot entry is isolated by the slot machinery: the
+     * entry stays registered (`shell.overlay` still lists it) while the component
+     * renders nothing, so the window disappears with no explanation anywhere in
+     * the UI. This boundary keeps a minimal, self-styled warning pill on screen
+     * instead, and reports the cause to the console and to the pill's tooltip.
+     *
+     * It must not depend on the window's own stylesheet: if the window failed to
+     * render, its injected `<style>` may never have mounted, so the fallback
+     * carries inline styles and theme tokens only.
+     */
+    class FloatingWindowBoundary extends React.Component {
+      /** @param props - the children to protect. */
+      constructor(props) {
+        super(props);
+        this.state = { error: null };
+      }
+
+      /** @param error - the render error. @returns the next state. */
+      static getDerivedStateFromError(error) {
+        return { error };
+      }
+
+      /** @param error - the render error, reported once. */
+      componentDidCatch(error) {
+        if (typeof console !== 'undefined' && typeof console.error === 'function') {
+          console.error('[agent-mode-change] the floating window failed to render:', error);
+        }
+      }
+
+      /** @returns the protected children, or the inline fallback pill. */
+      render() {
+        const { error } = this.state;
+        if (error === null || error === undefined) return this.props.children;
+        const message = error !== null && typeof error === 'object' && typeof error.message === 'string'
+          ? error.message
+          : String(error);
+        return h(
+          'div',
+          {
+            className: 'aef-crash',
+            title: message,
+            style: {
+              position: 'fixed',
+              right: 20,
+              top: 84,
+              zIndex: 1100,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              maxWidth: 320,
+              height: 28,
+              padding: '0 10px',
+              border: '1px solid var(--dsw-alias-state-error-primary)',
+              borderRadius: 999,
+              background: 'var(--dsw-alias-bg-overlay)',
+              color: 'var(--dsw-alias-state-error-primary)',
+              boxShadow: '0 2px 10px rgba(0, 0, 0, 0.22)',
+              pointerEvents: 'auto',
+              fontSize: 12,
+              lineHeight: '16px',
+            },
+          },
+          h('span', { key: 'icon', 'aria-hidden': 'true' }, '⚠'),
+          h(
+            'span',
+            { key: 'text', style: { overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' } },
+            'Agent 模式渲染失败（悬停看原因 / see console）',
+          ),
+        );
+      }
+    }
+
+    /**
+     * The registered occupant: the window wrapped in its boundary, so a render
+     * error degrades visibly instead of silently.
+     * @param props - the slot props, forwarded untouched.
+     * @returns the protected window.
+     */
+    function FloatingWindow(props) {
+      return h(FloatingWindowBoundary, null, h(AgentEmulationFloat, props));
+    }
+
     return {
       inject: ['slots', 'sessions', 'remote', 'remote.commands', 'locale'],
       apply(ctx) {
@@ -694,7 +784,7 @@ window.__ModuleLoader__.load({
                 {
                   name: 'shell.overlay',
                   id: 'agent-mode-change',
-                  order: 46,
+                  order: 47,
                   locale: LOCALE_NS,
                   inject: () => ({
                     /**
@@ -733,7 +823,7 @@ window.__ModuleLoader__.load({
                     },
                   }),
                 },
-                AgentEmulationFloat,
+                FloatingWindow,
               ),
             ),
           'agent-mode-change: floating window',
