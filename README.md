@@ -2,22 +2,13 @@
 
 **DeepSeek Harness 的 Agent 模式悬浮窗。** 一个可自由拖动的 Web UI 面板，把当前会话的系统提示词在「本机提示词」与 **13 个主流编码 Agent CLI 的归档提示词**之间一键切换。
 
-**语言 / Language：** [English](README.en.md) ｜ **中文**
+**语言 / Language：** **中文** ｜ English：[GitHub](https://github.com/deepseekharness-dsh/agent-mode-change/blob/main/README.en.md) · [Gitee](https://gitee.com/deepseekharness/agent-mode-change/blob/main/README.en.md)
 
 **状态：** ✅ CI 通过 · Node ≥ 20 · MIT · npm `agent-mode-change`
 
 **关键词：** `DeepSeek Harness` · `dsh` · `dsh-plugin` · `Cordis` · `AI Agent` · `Coding Agent` · `System Prompt` · `Prompt Engineering`
 
 **仓库：** [GitHub](https://github.com/deepseekharness-dsh/agent-mode-change) ｜ 镜像 [Gitee](https://gitee.com/deepseekharness/agent-mode-change) ｜ npm [`agent-mode-change`](https://www.npmjs.com/package/agent-mode-change)
-
-<!--
-徽章默认关闭：部分网络环境（含国内）访问 img.shields.io 与 github.com/*.svg 会超时，
-在 GitHub 与 Gitee 页面上都会显示成裂图。发布到 npm 后如需徽章，去掉下面两行的注释即可。
-CI 运行记录：https://github.com/deepseekharness-dsh/agent-mode-change/actions
-
-[![CI](https://github.com/deepseekharness-dsh/agent-mode-change/actions/workflows/ci.yml/badge.svg)](https://github.com/deepseekharness-dsh/agent-mode-change/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/agent-mode-change?color=blue)](https://www.npmjs.com/package/agent-mode-change)
--->
 
 ---
 
@@ -189,6 +180,8 @@ docs/RELEASING.md      发布流程（npm / GitHub / Gitee / 收录 PR）
 - [ ] 自定义提示词目录（在随包目录之外挂自己的归档）
 - [ ] 每个会话记忆展开/收起状态
 - [ ] 更多客户端形态（非 Web）
+
+**语言 / Language：** **中文** ｜ English：[GitHub](https://github.com/deepseekharness-dsh/agent-mode-change/blob/main/README.en.md) · [Gitee](https://gitee.com/deepseekharness/agent-mode-change/blob/main/README.en.md)
 
 ## 许可与致谢
 

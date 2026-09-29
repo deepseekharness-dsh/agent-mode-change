@@ -2,23 +2,13 @@
 
 **The Agent-mode floating window for DeepSeek Harness.** A freely draggable Web-UI panel that switches the current session's system prompt between the harness's own prompt and **13 archived coding-agent CLI prompts** — in one click.
 
-**Language / 语言：** **English** ｜ [中文](README.md)
+**Language / 语言：** **English** ｜ 中文：[GitHub](https://github.com/deepseekharness-dsh/agent-mode-change/blob/main/README.md) · [Gitee](https://gitee.com/deepseekharness/agent-mode-change/blob/main/README.md)
 
 **Status:** ✅ CI passing · Node ≥ 20 · MIT · npm `agent-mode-change`
 
 **Keywords:** `DeepSeek Harness` · `dsh` · `dsh-plugin` · `Cordis` · `AI Agent` · `Coding Agent` · `System Prompt` · `Prompt Engineering`
 
 **Repository:** [GitHub](https://github.com/deepseekharness-dsh/agent-mode-change) ｜ mirror [Gitee](https://gitee.com/deepseekharness/agent-mode-change) ｜ npm [`agent-mode-change`](https://www.npmjs.com/package/agent-mode-change)
-
-<!--
-Badges are off by default: in some networks (mainland China among them) img.shields.io
-and github.com/*.svg time out, which renders as a broken image on GitHub and on the Gitee
-mirror. Once the package is on npm, uncomment the two lines below to switch them on.
-CI runs: https://github.com/deepseekharness-dsh/agent-mode-change/actions
-
-[![CI](https://github.com/deepseekharness-dsh/agent-mode-change/actions/workflows/ci.yml/badge.svg)](https://github.com/deepseekharness-dsh/agent-mode-change/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/agent-mode-change?color=blue)](https://www.npmjs.com/package/agent-mode-change)
--->
 
 ---
 
@@ -209,6 +199,8 @@ For local iteration, `dsh plugin add /path/to/repo` into any profile, or point `
 - [ ] Custom prompt directories beside the shipped catalog
 - [ ] Per-session memory of the collapsed state
 - [ ] More client surfaces (beyond Web)
+
+**Language / 语言：** **English** ｜ 中文：[GitHub](https://github.com/deepseekharness-dsh/agent-mode-change/blob/main/README.md) · [Gitee](https://gitee.com/deepseekharness/agent-mode-change/blob/main/README.md)
 
 ## License and credits
 

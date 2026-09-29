@@ -80,3 +80,18 @@ description:
 - [ ] `README.md` / `README.en.md` 与实际行为一致（精选列表会核对描述与代码）
 - [ ] `git tag vX.Y.Z && git push --tags`（Gitee + GitHub 各推一次）
 - [ ] `npm publish`
+
+## 文档渲染注意（血的教训）
+
+1. **README 里不要写裸 HTML**（`<div align="center">…</div>`、`<!-- 注释 -->` 都不行）。
+   Gitee 的 README 是**客户端**用 markdown-it 渲染的（服务端 HTML 里只有
+   `<blob-markdown-renderer><textarea class='content'>原文</textarea>`），它的 HTML 配置与 GitHub 不同，
+   HTML 有可能被原样显示出来。
+2. **跨文件链接一律写绝对地址**：`https://github.com/deepseekharness-dsh/agent-mode-change/blob/main/README.en.md`。
+   实测相对链接 `README.en.md` 在 Gitee 上会按页面地址解析成
+   `https://gitee.com/deepseekharness/README.en.md` → **404**；若渲染器改用默认分支解析，
+   `blob/master/...` 也是 **404**（本仓库默认分支是 `main`，`blob/main/...` 已验证 200）。
+3. **远程图片徽章默认不启用**：`img.shields.io` 与 `github.com/*.svg` 在国内网络常超时变成裂图。
+   发布 npm 之后如需徽章，直接用 markdown 图片语法加回即可。
+4. 验证渲染别只看服务端 HTML：抓 `/blob/<sha>/<file>` 拿到的是**源码视图**。要看渲染结果必须在浏览器里看，
+   或检查链接目标 URL 是否 200。
