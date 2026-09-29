@@ -5,6 +5,8 @@
 
 [English](README.en.md) | 中文
 
+仓库 <https://github.com/deepseekharness-dsh/agent-mode-change> ｜ 镜像 <https://gitee.com/deepseekharness/agent-mode-change>
+
 ## 它做什么
 
 窗口列出两种模式：

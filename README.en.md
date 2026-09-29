@@ -6,6 +6,8 @@ with one click.
 
 English | [中文](README.md)
 
+Repository <https://github.com/deepseekharness-dsh/agent-mode-change> ｜ mirror <https://gitee.com/deepseekharness/agent-mode-change>
+
 ## What it does
 
 The window lists two kinds of mode:

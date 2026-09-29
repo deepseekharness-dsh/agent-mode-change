@@ -8,11 +8,11 @@
   "icon": "./icon.svg",
   "repository": {
     "type": "git",
-    "url": "git+https://gitee.com/deepseekharness/agent-mode-change.git"
+    "url": "git+https://github.com/deepseekharness-dsh/agent-mode-change.git"
   },
-  "homepage": "https://gitee.com/deepseekharness/agent-mode-change#readme",
+  "homepage": "https://github.com/deepseekharness-dsh/agent-mode-change#readme",
   "bugs": {
-    "url": "https://gitee.com/deepseekharness/agent-mode-change/issues"
+    "url": "https://github.com/deepseekharness-dsh/agent-mode-change/issues"
   },
   "keywords": [
     "dsh",
