@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Agent Mode Float",
-    "description": "Turns the Agent modes this deployment can run into a freely draggable floating window: DeepSeek Harness (the default — this harness's own prompt) plus every archived-prompt mode @deepseek-ai/dsh-agent-emulation ships. Press anywhere and drag to place it; the position is remembered; picking a row switches this session's mode."
+    "title": "Agent Mode Change",
+    "description": "A freely draggable Web-UI window that switches the current session's system prompt between DeepSeek Harness's own prompt and 13 archived coding-agent CLI prompts (Claude Code, Codex CLI, Antigravity, Grok, Kimi, MiniMax Code, opencode, Pi…). Switching runs the official /agent command, so the session log stays traceable."
   }
 }

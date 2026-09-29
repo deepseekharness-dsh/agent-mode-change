@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "Agent 模式悬浮窗",
-    "description": "把本部署可用的 Agent 模式做成一个可自由拖动的悬浮窗：默认模式 DeepSeek Harness（本 harness 自己的提示词），另有 @deepseek-ai/dsh-agent-emulation 提供的归档提示词模式。窗口任意位置按住即可摆放，位置自动记住；点选一行即切换本会话的模式。"
+    "description": "在 DeepSeek Harness 的 Web UI 里放一个可自由拖动的悬浮窗：一键把当前会话的系统提示词切到 13 个编码 Agent CLI 的归档提示词（Claude Code / Codex CLI / Antigravity / Grok / Kimi / MiniMax Code / opencode / Pi…），或切回 DeepSeek Harness 本机提示词。切换走官方 /agent 命令，会话日志可追溯。"
   }
 }
