@@ -4,6 +4,23 @@ All notable changes to this plugin are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.0.1 — 2026-09-29
+
+Documentation and release-tooling patch. Behaviour is unchanged from 1.0.0.
+
+### Changed
+
+- README (zh/en): re-enabled the CI / npm / license / node badges now that the
+  package exists on npm, and state the published version.
+- `docs/RELEASING.md`: documents the verified publishing recipe (why an
+  `npm login` session token is rejected with 403, the granular-token fields
+  that work, and the npm deprecation dates).
+
+### Added
+
+- `.github/workflows/publish.yml`: tag-triggered publishing through npm Trusted
+  Publishing (OIDC) — tag/version guard, tests, no secrets.
+
 ## 1.0.0 — 2026-09-29
 
 First public release.

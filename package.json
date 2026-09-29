@@ -1,6 +1,6 @@
 {
   "name": "agent-mode-change",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Agent-mode floating window for DeepSeek Harness (dsh): switch a session's system prompt between the harness's own prompt and 13 archived coding-agent CLI prompts (Claude Code, Codex CLI, Antigravity, Grok, Kimi, MiniMax, opencode, Pi…) from a draggable Web-UI panel. Cordis bundle, log-safe via the official /agent command.",
   "license": "MIT",
