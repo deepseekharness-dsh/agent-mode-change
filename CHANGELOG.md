@@ -16,8 +16,20 @@ Documentation and release-tooling patch. Behaviour is unchanged from 1.0.0.
   `npm login` session token is rejected with 403, the granular-token fields
   that work, and the npm deprecation dates).
 
+### Fixed
+
+- The floating window could disappear silently: a malformed catalog row made
+  `agents.find((agent) => agent.id === active)` throw during render, which the
+  slot machinery isolates — the entry stays registered while nothing renders.
+  Rows are now normalized before use, and the window is wrapped in an error
+  boundary that degrades any render error to a visible warning pill (tooltip =
+  cause) instead of vanishing.
+
 ### Added
 
+- `test/render.test.mjs`: a minimal React stand-in (function and class
+  components plus error boundaries) drives the real browser bundle through the
+  reachable states, malformed projection values, and a forced render error.
 - `.github/workflows/publish.yml`: tag-triggered publishing through npm Trusted
   Publishing (OIDC) — tag/version guard, tests, no secrets.
 
