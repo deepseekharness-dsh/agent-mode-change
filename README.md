@@ -2,9 +2,15 @@
 
 **DeepSeek Harness 的 Agent 模式悬浮窗。** 一个可自由拖动的 Web UI 面板，把当前会话的系统提示词在「本机提示词」与 **13 个主流编码 Agent CLI 的归档提示词**之间一键切换。
 
+[![CI](https://github.com/deepseekharness-dsh/agent-mode-change/actions/workflows/ci.yml/badge.svg)](https://github.com/deepseekharness-dsh/agent-mode-change/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/agent-mode-change?color=blue)](https://www.npmjs.com/package/agent-mode-change)
+[![npm downloads](https://img.shields.io/npm/dm/agent-mode-change)](https://www.npmjs.com/package/agent-mode-change)
+[![license](https://img.shields.io/npm/l/agent-mode-change)](LICENSE)
+[![node](https://img.shields.io/badge/node-%3E%3D20-3c873a)](package.json)
+
 **语言 / Language：** **中文** ｜ English：[GitHub](https://github.com/deepseekharness-dsh/agent-mode-change/blob/main/README.en.md) · [Gitee](https://gitee.com/deepseekharness/agent-mode-change/blob/main/README.en.md)
 
-**状态：** ✅ CI 通过 · Node ≥ 20 · MIT · npm `agent-mode-change`
+**状态：** ✅ 已发布 npm `agent-mode-change@1.0.0` · CI 通过 · Node ≥ 20 · MIT
 
 **关键词：** `DeepSeek Harness` · `dsh` · `dsh-plugin` · `Cordis` · `AI Agent` · `Coding Agent` · `System Prompt` · `Prompt Engineering`
 

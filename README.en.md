@@ -2,9 +2,15 @@
 
 **The Agent-mode floating window for DeepSeek Harness.** A freely draggable Web-UI panel that switches the current session's system prompt between the harness's own prompt and **13 archived coding-agent CLI prompts** — in one click.
 
+[![CI](https://github.com/deepseekharness-dsh/agent-mode-change/actions/workflows/ci.yml/badge.svg)](https://github.com/deepseekharness-dsh/agent-mode-change/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/agent-mode-change?color=blue)](https://www.npmjs.com/package/agent-mode-change)
+[![npm downloads](https://img.shields.io/npm/dm/agent-mode-change)](https://www.npmjs.com/package/agent-mode-change)
+[![license](https://img.shields.io/npm/l/agent-mode-change)](LICENSE)
+[![node](https://img.shields.io/badge/node-%3E%3D20-3c873a)](package.json)
+
 **Language / 语言：** **English** ｜ 中文：[GitHub](https://github.com/deepseekharness-dsh/agent-mode-change/blob/main/README.md) · [Gitee](https://gitee.com/deepseekharness/agent-mode-change/blob/main/README.md)
 
-**Status:** ✅ CI passing · Node ≥ 20 · MIT · npm `agent-mode-change`
+**Status:** ✅ published on npm as `agent-mode-change@1.0.0` · CI passing · Node ≥ 20 · MIT
 
 **Keywords:** `DeepSeek Harness` · `dsh` · `dsh-plugin` · `Cordis` · `AI Agent` · `Coding Agent` · `System Prompt` · `Prompt Engineering`
 

@@ -30,6 +30,8 @@ git push -u origin main
 
 ## 2. 发布到 npm
 
+> ⚠️ 直接 `npm publish` 在账号未启用 2FA 时会被注册表拒绝，正确的凭据做法见文末 **§6.1**。
+
 ```sh
 npm test                         # 必须全绿
 npm pack --dry-run               # 确认打包内容：index.js client.js cordis.patch.yml icon.svg locale/ README* CHANGELOG.md LICENSE
@@ -95,3 +97,47 @@ description:
    发布 npm 之后如需徽章，直接用 markdown 图片语法加回即可。
 4. 验证渲染别只看服务端 HTML：抓 `/blob/<sha>/<file>` 拿到的是**源码视图**。要看渲染结果必须在浏览器里看，
    或检查链接目标 URL 是否 200。
+
+## 6. 实际发布记录与两条已验证的路（2026-09-29）
+
+首版 `agent-mode-change@1.0.0` 已发布，maintainer `helihuo919`。下面是把首版发出去的过程，照抄可用。
+
+### 6.1 已发布用法：bypass-2FA 的 granular token（一次性）
+
+**`npm login` 的网页会话令牌不算"满足 2FA 的发布凭据"**，用它发布必然返回：
+
+    403 Two-factor authentication or granular access token with bypass 2fa enabled is required to publish packages.
+
+参考 [npm/cli#9268](https://github.com/npm/cli/issues/9268)（2026-04 开、至今 open）。可行做法：
+
+1. <https://www.npmjs.com/settings/helihuo919/tokens> → Generate New Token → **Granular Access Token**
+   - Permissions：**Read and write (publish and stage)** —— 不是 "stage only"
+   - **Bypass two-factor authentication (2FA)** ✅ 必须勾（不勾就是上面那个 403）
+   - Organizations：**No access**（账号没有组织时选别的会报
+     "You must select at least one organization if granting organization permissions to this token."）
+   - Allowed IP ranges：留空；Expiration：7 days
+2. 令牌写进**独立的** userconfig（不要与 `npm login` 的会话令牌混用，否则 npm 会用会话令牌）：
+
+       printf '//registry.npmjs.org/:_authToken=%s\n' '<token>' > /tmp/.npmrc-gat && chmod 600 /tmp/.npmrc-gat
+       NPM_CONFIG_USERCONFIG=/tmp/.npmrc-gat npm whoami
+       NPM_CONFIG_USERCONFIG=/tmp/.npmrc-gat npm publish --access public --cache /tmp/npm-cache
+
+3. **发完立刻撤销该令牌**。并注意 npm 的时间表：bypass-2FA 令牌用于**账号变更自 2026-08 起受限**、
+   用于**直接发布自 2027-01 起受限** —— 所以别把它当长期方案。
+
+### 6.2 以后（推荐）：OIDC Trusted Publishing，零令牌零验证码
+
+仓库已带 [`.github/workflows/publish.yml`](../.github/workflows/publish.yml)。在 npm 包设置页配置一次
+（**包必须已存在才能配**，所以首版只能手工发）：
+
+| 字段 | 值 |
+|---|---|
+| Publisher | GitHub Actions |
+| Organization or user | `deepseekharness-dsh` |
+| Repository | `agent-mode-change` |
+| Workflow filename | `publish.yml`（必须逐字一致） |
+| Environment name | 留空（或与 workflow 里的 `environment:` 对齐） |
+
+之后发版：改 `package.json` 的 `version` → 提交 → `git tag vX.Y.Z && git push --tags`。
+workflow 会先校验 tag 与 version 一致、跑 `npm test`，再用 OIDC 发布
+（`permissions: id-token: write`，不需要任何 secret，也不需要 2FA 交互）。
